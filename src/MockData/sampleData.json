@@ -1,22 +1,25 @@
 {
   "username": "email@domain.com",
   "organization": "Tri-State Real Estate",
-  "realEstate": [
-    {
-      "id": "df987fdlkj35",
-      "address": "1234 Some St",
-      "city": "Springfield",
-      "state": "IL",
-      "zipcode": 88888,
-      "bedrooms": 2,
-      "bathrooms": 3,
-      "built": 1965,
-      "picture": "https://i.imgur.com/ufZjaLz.jpg",
-      "depreciation": [0.07, -0.03],
-      "zestimate": 150000,
-      "certainty": 10000,
-      "onMarket": "2019-03-09T19:37:20.759Z"
-    }
-  ],
+  "realEstate": {
+    "sell": [
+      {
+        "id": "df987fdlkj35",
+        "address": "1234 Some St",
+        "city": "Springfield",
+        "state": "IL",
+        "zipcode": 88888,
+        "bedrooms": 2,
+        "bathrooms": 3,
+        "built": 1965,
+        "picture": "https://i.imgur.com/ufZjaLz.jpg",
+        "depreciation": [0.07, -0.03],
+        "zestimate": 150000,
+        "certainty": 10000,
+        "onMarket": "2019-03-09T19:37:20.759Z"
+      }
+    ],
+    "buy": []
+  },
   "widgets": ["averageValue", "timeOnMarket", "stateLocation"]
 }
