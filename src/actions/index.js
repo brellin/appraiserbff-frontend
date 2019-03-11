@@ -2,6 +2,8 @@ import axios from "axios";
 
 // Log in actions
 export const LOGGING_IN = "LOGGING_IN";
+export const LOGIN_SUCCESSFUL = "LOGIN_SUCCESSFUL";
+export const LOGIN_ERROR = "LOGIN_ERROR";
 // User context actions
 export const SET_USER_VIEW = "SET_USER_VIEW";
 // Update user account
@@ -52,7 +54,7 @@ export const sortRealEstate = (category, order) => {
   };
 };
 export const updateWidget = newWidgetList => dispatch => {
-  dispatch({ type: ADD_WIDGET });
+  dispatch({ type: UPDATE_WIDGETS });
 
   // axios put request to OVERRIDE previous widget data
 };
