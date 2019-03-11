@@ -11,7 +11,7 @@ import {
 
 const initialState = {
   user: {
-    username: "",
+    username: "place.holder@email.com",
     organization: "",
     realEstate: { buy: [], sell: [] },
     widgets: []
@@ -36,6 +36,13 @@ export default (state = initialState, action) => {
     // Set View reducers
 
     // Update Account reducers
+    case UPDATE_ACCOUNT: 
+    return {
+      ...state,
+      user: {
+        username: action.payload.email
+      },
+    }
 
     // Real Estate reducers
 
