@@ -3,7 +3,6 @@ import styles from './card.module.scss'
 import { Link } from 'react-router-dom';
 
 const Card = props => {
-    console.log(props.item)
     return(
         <div className={styles.card}>
             
