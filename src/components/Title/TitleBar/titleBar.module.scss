@@ -1,0 +1,37 @@
+.titleBar {
+    background: #005703;
+    height: 80px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 35px;
+    align-items: center;
+    margin: 0 auto;
+  
+    h2 {
+      color: rgba(255, 255, 255, 0.479);
+    }
+  }
+  
+  .user {
+    display: flex;
+    align-items: center;
+  
+    i {
+      color: white;
+      margin-right: 12px;
+    }
+  
+    h3 {
+      color: white;
+      margin-right: 50px;
+      font-size: 30px;
+    }
+    div {
+      width: 45px;
+      height: 45px;
+      background: white;
+      border-radius: 50%;
+    }
+  }
+  
