@@ -2,6 +2,10 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styles from "./accountSettings.module.scss";
 
+import { connect } from 'react-redux';
+import { updateAccount } from '../../../actions'
+
+
 const AccountSettings = props => {
   const [email, setEmail] = useState("");
 
@@ -21,7 +25,7 @@ const AccountSettings = props => {
       };
       setWrongPass(false);
       setRightPass(true);
-      console.log(newAccountSetting);
+      props.updateAccount(newAccountSetting);
     } else {
       setWrongPass(true);
       setRightPass(false);
@@ -113,4 +117,11 @@ const AccountSettings = props => {
   );
 };
 
-export default AccountSettings;
+const mapStateToProps = state => {
+    return{
+        user: state.user
+    }
+}
+
+
+export default connect(mapStateToProps, { updateAccount })(AccountSettings);

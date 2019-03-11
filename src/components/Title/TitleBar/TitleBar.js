@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import styles from "./titleBar.module.scss";
 import { Link } from "react-router-dom";
+import { connect } from 'react-redux';
+
 
 const TitleBar = props => {
   return (
@@ -12,7 +14,7 @@ const TitleBar = props => {
             <i className="fas fa-caret-down" />
           </Link>
 
-          <h3>username</h3>
+          <h3>{props.email}</h3>
           <div className="user-img" />
         </div>
       </div>
@@ -20,4 +22,10 @@ const TitleBar = props => {
   );
 };
 
-export default TitleBar;
+const mapStateToProps = state => {
+  return{
+      email: state.user.username
+  }
+}
+
+export default connect(mapStateToProps, {})(TitleBar);
