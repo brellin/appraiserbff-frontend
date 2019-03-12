@@ -1,0 +1,10 @@
+.appContainer {
+  display: flex;
+  flex-direction: column;
+
+  main.content {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 20px;
+  }
+}

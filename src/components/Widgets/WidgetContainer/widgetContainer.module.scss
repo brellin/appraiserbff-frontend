@@ -1,9 +1,6 @@
-$lightGrey: #e9e9e9;
-$grey: #9ea3a4;
-$darkGrey: #7d7b7b;
-
 .widgetContainer {
-  width: 35%;
+  width: 20%;
+  max-width: 300px;
   border: 1px solid black;
 
   display: flex;
@@ -12,13 +9,22 @@ $darkGrey: #7d7b7b;
 }
 
 .widgetTitle {
-  width: 61%;
+  width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
+  border-bottom: 1px solid black;
+
+  h2 {
+    font-size: 1.5rem;
+    text-align: center;
+    //text-decoration: underline;
+    border-bottom: 2px solid black;
+    margin: 5px 0;
+  }
 
   i {
-    margin-right: 10px;
+    color: #000;
     cursor: pointer;
   }
 }
