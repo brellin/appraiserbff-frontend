@@ -44,11 +44,7 @@ const CardContainer = props => {
             </div>
             <div className={styles.cardContainer}>
                 {
-                    filteredByStatus == 1 ? props.realEstate.buy.map(item => {
-                        return(
-                            <Card mode="buy" key={item.id} item={item}/>
-                        );
-                    }) :  filteredByStatus == 2 ? props.realEstate.buy.map(item => {
+                    filteredByStatus == 1 || filteredByStatus == 2 ? props.realEstate.buy.map(item => {
                         return(
                             <Card mode="buy" key={item.id} item={item}/>
                         );
@@ -56,11 +52,7 @@ const CardContainer = props => {
                 }
 
 
-                {filteredByStatus == 1 ? props.realEstate.sell.map(item => {
-                    return(
-                        <Card mode="sell" key={item.id} item={item}/>
-                    );
-                }) : filteredByStatus == 3 ? props.realEstate.sell.map(item => {
+                {filteredByStatus == 1 || filteredByStatus == 3 ? props.realEstate.sell.map(item => {
                     return(
                         <Card mode="sell" key={item.id} item={item}/>
                     );
