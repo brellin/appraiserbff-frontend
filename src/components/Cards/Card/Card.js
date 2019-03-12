@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './card.module.scss'
 import { Link } from 'react-router-dom';
-
+ 
 const Card = props => {
     return(
         <div className={styles.card}>
@@ -20,7 +20,7 @@ const Card = props => {
             </div>
             <hr />
             <div className={styles.seeMore}>
-                <Link to="/home/" style={{color: "blue"}}>see more details</Link>
+                <Link to={`/home/cards/${props.item.id}`} style={{color: "blue"}}>see more details</Link>
                 <p>{props.mode === "sell" ? <span style={{color: "green"}}>sell</span> : <span style={{color: "red"}}>buy</span>}</p>
             </div>
 

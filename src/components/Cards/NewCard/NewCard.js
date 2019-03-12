@@ -4,25 +4,33 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 const NewCard = props => {
-
+            //info for top form
     const [address, setAddress] = useState("");
     const [city, setCity] = useState("");
     const [thisState, setThisState] = useState("");
     const [zip, setZip] = useState("");
+    
+            //info for bottom form
+    const [sqFootage, setSqFootage] = useState("");
+    const [bed, setBed] = useState("");
+    const [bath, setBath] = useState("");
 
     const getInfoFromZillow = () => {
         console.log("working");
         
         let splitAddress = address.split(" ").join("+");
-        console.log(splitAddress);
 
-        let APIKey = "";
-        let endPoint = `http://www.zillow.com/webservice/GetDeepSearchResults.htm?zws-id=<${APIKey}>&address=2114+Bigelow+Ave&citystatezip=${splitAddress}%2C+${thisState}`
-        axios.get(endPoint)
+        let APIKey = "X1-ZWz18227znjxu3_1acr8";
+        //http://www.zillow.com/webservice/GetDeepSearchResults.htm?zws-id=<${APIKey}>&address=${splitAddress}&citystatezip=${city}%2C+${thisState}
+        let endPoint = `http://www.zillow.com/webservice/GetDeepSearchResults.htm?zws-id=${APIKey}&address=2114+Bigelow+Ave&citystatezip=Seattle%2C+WA`
+        axios.get(endPoint, {headers: {"zws-id": APIKey}})
             .then(res => console.log(res))
             .catch(err => console.log(err))
     }
 
+    const submitForm = () => {
+        console.log("submitting form....")
+    }
 
     return(
         <div className={styles.newCard}>
@@ -93,6 +101,56 @@ const NewCard = props => {
                     >get details</button>
                 </form>
                 <hr />
+
+                <form className={styles.formTwo}>
+                    <div>
+                        <label>sq footage:</label>
+                        <input 
+                        type="text" 
+                        style={{marginLeft: "20px"}}
+                        value={sqFootage}
+                        onChange={e => {
+                            e.preventDefault();
+                            setSqFootage(e.target.value);
+                        }}
+                        />
+                    </div>
+
+                    <div>
+                        <label>bed:</label>
+                        <input 
+                        type="text" 
+                        style={{marginLeft: "67px"}}
+                        value={bed}
+                        onChange={e => {
+                            e.preventDefault();
+                            setBed(e.target.value);
+                        }}
+                        />
+                    </div>
+
+                    <div>
+                        <label>bath:</label>
+                        <input 
+                        type="text" 
+                        style={{marginLeft: "63px"}}
+                        value={bath}
+                        onChange={e => {
+                            e.preventDefault();
+                            setBath(e.target.value);
+                        }}
+                        />
+                    </div>
+
+                    <button 
+                    onClick={e => {
+                        e.preventDefault()
+                        submitForm();
+                    }}
+                    >Submit Form</button>
+                </form>
+                <hr />
+
             </div>  
         </div>
     );

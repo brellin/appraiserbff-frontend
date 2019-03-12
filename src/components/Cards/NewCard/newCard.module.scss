@@ -37,7 +37,28 @@
         color: white;
         cursor: pointer;
         border-radius: 10px;
-        font-size: 18px;
+        font-size: 14px;
+      }
+  }
+
+  .formTwo{
+    display: flex;
+    flex-direction: column;   
+    align-items: flex-start;
+    padding-left: 20px;
+    flex-wrap: wrap;
+    input{
+        margin: 10px 12px;
+        width: 125px;
+    }
+    button {
+        width: 190px;
+        height: 35px;
+        background: #015703;
+        color: white;
+        cursor: pointer;
+        border-radius: 10px;
+        font-size: 16px;
       }
   }
 

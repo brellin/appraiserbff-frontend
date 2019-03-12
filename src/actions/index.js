@@ -1,4 +1,20 @@
 import axios from "axios";
+ 
+//for mock data pull in CDM
+import mockData from '../MockData/sampleData.json'
+export const MOCK_DATA_PULL = "MOCK_DATA_PULL";
+export const mockDataPull = () => dispatch => {
+  console.log(mockData)
+  dispatch({type: MOCK_DATA_PULL, payload: mockData})
+}
+
+
+
+
+
+
+
+
 
 // Log in actions
 export const LOGGING_IN = "LOGGING_IN";
