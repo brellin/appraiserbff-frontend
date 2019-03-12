@@ -2,23 +2,18 @@ import React from "react";
 import styles from "./manageWidgets.module.scss";
 import { Link } from "react-browser-router";
 import widgetData from "../Widget/widgetData.js";
-
-import { updateWidgets } from "../../../actions";
-
-let props = {
-  widgets: ["averageZestimate", "timeOnMarket", "timeOnMarket", "timeOnMarket"]
-};
+import { setWidgets } from "../../../actions";
+import { connect } from "react-redux";
 
 // Live version needs props
-function ManageWidgets() {
+function ManageWidgets(props) {
   // Change order of widgets on click;
   const changeOrder = (index, move) => {
     const newOrder = [...props.widgets]; // fight the power
     const holder = newOrder[index];
     newOrder[index] = newOrder[index + move];
     newOrder[index + move] = holder;
-    props.widgets = newOrder;
-    // updateWidgets(newOrder);
+    props.setWidgets(newOrder);
   };
 
   // Add/Remove widgets
@@ -30,8 +25,7 @@ function ManageWidgets() {
     } else {
       widgets.push(widget);
     }
-    //console.log(widgets);
-    //updateWidgets(widgets);
+    props.setWidgets(widgets);
   };
 
   // Users widgets, in order
@@ -111,4 +105,11 @@ function ManageWidgets() {
   );
 }
 
-export default ManageWidgets;
+const mapStateToProps = state => ({
+  widgets: state.user.widgets
+});
+
+export default connect(
+  mapStateToProps,
+  { setWidgets }
+)(ManageWidgets);

@@ -4,7 +4,7 @@ import axios from "axios";
 import mockData from "../MockData/sampleData.json";
 export const MOCK_DATA_PULL = "MOCK_DATA_PULL";
 export const mockDataPull = () => dispatch => {
-  //console.log(mockData);
+  console.log(mockData);
   dispatch({ type: MOCK_DATA_PULL, payload: mockData });
 };
 
@@ -21,12 +21,12 @@ export const UPDATE_PASSWORD = "UPDATE_PASSWORD";
 // Or just 1?
 export const UPDATE_ACCOUNT = "UPDATE_ACCOUNT";
 // Real Estate actions
-export const SORT_REAL_ESTATE = "SORT_REAL_ESTATE";
-export const UPDATE_REAL_ESTATE = "UPDATE_REAL_ESTATE";
+export const UPDATING_REAL_ESTATE = "UPDATING_REAL_ESTATE";
 export const ADD_REAL_ESTATE = "ADD_REAL_ESTATE";
-export const DELETE_REAL_ESTATE = "DELETE_REAL_ESTATE";
+export const SET_REAL_ESTATE = "SET_REAL_ESTATE";
 // Widget actions
-export const UPDATE_WIDGETS = "UPDATE_WIDGETS";
+export const UPDATING_WIDGETS = "UPDATING_WIDGETS";
+export const SET_WIDGETS = "SET_WIDGETS";
 
 export const logUserIn = () => dispatch => {
   dispatch({ type: LOGGING_IN });
@@ -56,29 +56,28 @@ export const updateAccount = newSettings => dispatch => {
 
   // axios put for username/password
 };
-export const sortRealEstate = (category, order) => {
-  return {
-    type: SORT_REAL_ESTATE,
-    payload: { category, order }
-  };
-};
-export const updateWidgets = newWidgetList => dispatch => {
-  dispatch({ type: UPDATE_WIDGETS });
 
-  // axios put request to OVERRIDE previous widget data
-};
-export const addRealEstate = realEstate => dispatch => {
-  dispatch({ type: ADD_REAL_ESTATE });
+export const setWidgets = widgets => dispatch => {
+  dispatch({ type: UPDATING_WIDGETS });
 
-  // axios post request
+  axios
+    .put("", widgets)
+    .then(res => dispatch({ type: SET_WIDGETS, payload: res.data }))
+    .catch(err => console.log(err));
 };
-export const deleteRealEstate = id => dispatch => {
-  dispatch({ type: DELETE_REAL_ESTATE });
 
-  // axios delete request
+export const addRealEstate = (realEstate, buyOrSell) => dispatch => {
+  dispatch({ type: UPDATING_REAL_ESTATE });
+  axios
+    .post("", { realEstate, buyOrSell })
+    .then(res => dispatch({ type: ADD_REAL_ESTATE, payload: res.data }))
+    .catch(err => console.log(err));
 };
-export const updateRealEstate = realEstate => dispatch => {
-  dispatch({ type: UPDATE_REAL_ESTATE });
 
-  // axios put request
+export const setRealEstate = realEstate => dispatch => {
+  dispatch({ type: UPDATING_REAL_ESTATE });
+  axios
+    .put("", realEstate)
+    .then(res => dispatch({ type: SET_REAL_ESTATE, payload: res.data }))
+    .catch(err => console.log(err));
 };

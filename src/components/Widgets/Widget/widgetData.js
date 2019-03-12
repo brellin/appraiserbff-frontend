@@ -3,14 +3,16 @@ import wMath from "./widgetMath.js";
 function timeOnMarket(realEstate) {
   return {
     header: "Average Time On Market",
-    data: () => wMath.averageOnMarket(realEstate)
+    data: () => wMath.averageOnMarket(realEstate),
+    estateProp: "onMarket"
   };
 }
 
 function averageZestimate(realEstate) {
   return {
     header: "Average Estimate",
-    data: () => wMath.average(realEstate, "zestimate")
+    data: () => wMath.average(realEstate, "zestimate"),
+    estateProp: "zestimate"
   };
 }
 

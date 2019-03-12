@@ -98,16 +98,11 @@
         }
       ]
     },
-    "widgets": [
-      "averageZestimate",
-      "timeOnMarket",
-      "timeOnMarket",
-      "timeOnMarket"
-    ]
+    "widgets": ["averageZestimate", "timeOnMarket"]
   },
-  "userVilw": "buy",
   "loggingln": false,
-  "updatinglccount": false,
-  "addingRealEstale": false,
+  "updatingAccount": false,
+  "udpatingRealEstale": false,
+  "updatingWidgets": false,
   "error": null
 }
