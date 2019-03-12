@@ -133,7 +133,7 @@ function WidgetContainer() {
       <div className={styles.widgetTitle}>
         <h2>Overview</h2>
         <Link to="/home/widgets">
-          <i class="fas fa-cogs" />
+          <i className="fas fa-cogs" />
         </Link>
       </div>
       {usersWidgets}

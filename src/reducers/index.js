@@ -24,20 +24,14 @@ const initialState = {
   error: null
 };
 
-
-
 export default (state = initialState, action) => {
   switch (action.type) {
-    case MOCK_DATA_PULL: 
-    console.log(action.payload.user)
-    return {
-      ...state,
-      ...action.payload
-    }
-
-
-
-
+    case MOCK_DATA_PULL:
+      //console.log(action.payload.user)
+      return {
+        ...state,
+        ...action.payload
+      };
 
     // Login reducers
     case LOGGING_IN:
@@ -50,14 +44,14 @@ export default (state = initialState, action) => {
     // Set View reducers
 
     // Update Account reducers
-    case UPDATE_ACCOUNT: 
-    return {
-      ...state,
-      user: {
-        ...state.user,
-        username: action.payload.email
-      },
-    }
+    case UPDATE_ACCOUNT:
+      return {
+        ...state,
+        user: {
+          ...state.user,
+          username: action.payload.email
+        }
+      };
 
     // Real Estate reducers
 
