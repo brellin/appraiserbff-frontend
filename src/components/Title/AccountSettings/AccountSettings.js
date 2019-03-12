@@ -7,7 +7,7 @@ import { updateAccount } from '../../../actions'
 
 
 const AccountSettings = props => {
-  const [email, setEmail] = useState("");
+  const [email, setEmail] = useState(props.user.username);
 
   const [oldPass, setOldPass] = useState("");
   const [newPass, setNewPass] = useState("");

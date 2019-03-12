@@ -3,7 +3,6 @@ import styles from "./cardContainer.module.scss";
 import Card from '../Card';
 import{ Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { addRealEstate } from '../../../actions';
  
 const CardContainer = props => {
     return(
@@ -39,4 +38,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, { addRealEstate })(CardContainer);
+export default connect(mapStateToProps, { })(CardContainer);

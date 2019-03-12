@@ -15,7 +15,6 @@ export const mockDataPull = () => dispatch => {
 
 
 
-
 // Log in actions
 export const LOGGING_IN = "LOGGING_IN";
 export const LOGIN_SUCCESSFUL = "LOGIN_SUCCESSFUL";
@@ -75,11 +74,24 @@ export const updateWidget = newWidgetList => dispatch => {
 
   // axios put request to OVERRIDE previous widget data
 };
+
+
+
+
 export const addRealEstate = realEstate => dispatch => {
-  dispatch({ type: ADD_REAL_ESTATE });
+    console.log(realEstate);
+  axios.post("", realEstate)
+    .then(res => dispatch({ type: ADD_REAL_ESTATE, payload: res }))
+    .catch(err => console.log(err))
 
   // axios post request
 };
+
+
+
+
+
+
 export const deleteRealEstate = id => dispatch => {
   dispatch({ type: DELETE_REAL_ESTATE });
 

@@ -2,6 +2,8 @@ import React, { useState, useEffect} from 'react'
 import styles from './newCard.module.scss';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import { connect } from 'react-redux';
+import { addRealEstate } from '../../../actions';
 
 const NewCard = props => {
             //info for top form
@@ -20,7 +22,7 @@ const NewCard = props => {
     const [hoa, setHoa] = useState("");
     const [proType, setProType] = useState("");
     const [proAge, setProAge] = useState("");
-
+    
     const getInfoFromZillow = () => {
         console.log("working");
         
@@ -35,7 +37,19 @@ const NewCard = props => {
     }
 
     const submitForm = () => {
-        console.log("submitting form....")
+        const newProperty = {
+            id: Date.now(),
+            address: address,
+            city: city,
+            state: thisState,
+            zipcode: zip,
+            bedrooms: bed,
+            bathrooms: bath,
+            built: yearBuilt,
+            picture: "https://i.imgur.com/ufZjaLz.jpg"
+          }
+
+          props.addRealEstate(newProperty);
     }
 
     return(
@@ -248,4 +262,8 @@ const NewCard = props => {
     );
 }
 
-export default NewCard
+
+
+
+
+export default connect(null, { addRealEstate })(NewCard)
