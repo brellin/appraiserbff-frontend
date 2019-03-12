@@ -8,7 +8,7 @@ const TitleBar = props => {
   return (
     <div>
       <div className={styles.titleBar}>
-        <h2>Company Logo</h2>
+        <h2>{props.organization}</h2>
         <div className={styles.user}>
           <Link to="/home/account_settings">
             <i className="fas fa-caret-down" />
@@ -24,7 +24,8 @@ const TitleBar = props => {
 
 const mapStateToProps = state => {
   return{
-      email: state.user.username
+      email: state.user.username,
+      organization: state.user.organization
   }
 }
 

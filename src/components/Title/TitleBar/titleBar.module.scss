@@ -1,6 +1,6 @@
 .titleBar {
     background: #005703;
-    height: 80px;
+    height: 10px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -10,6 +10,7 @@
   
     h2 {
       color: rgba(255, 255, 255, 0.479);
+      font-size: 30px;
     }
   }
   
