@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.css';
+import axios from "axios";
 import "./globalStyles.scss";
 import { Route } from 'react-router-dom';
 import { mockDataPull } from './actions'
