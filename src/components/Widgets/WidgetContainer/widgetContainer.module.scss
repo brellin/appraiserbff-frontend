@@ -3,6 +3,22 @@ $grey: #9ea3a4;
 $darkGrey: #7d7b7b;
 
 .widgetContainer {
-  width: 30%;
+  width: 35%;
   border: 1px solid black;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.widgetTitle {
+  width: 61%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  i {
+    margin-right: 10px;
+    cursor: pointer;
+  }
 }

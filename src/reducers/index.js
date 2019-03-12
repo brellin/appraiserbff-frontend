@@ -6,7 +6,8 @@ import {
   UPDATE_ACCOUNT,
   SORT_REAL_ESTATE,
   UPDATE_REAL_ESTATE,
-  UPDATE_WIDGETS
+  UPDATE_WIDGETS,
+  MOCK_DATA_PULL
 } from "../actions";
 
 const initialState = {
@@ -23,8 +24,21 @@ const initialState = {
   error: null
 };
 
+
+
 export default (state = initialState, action) => {
   switch (action.type) {
+    case MOCK_DATA_PULL: 
+    console.log(action.payload.user)
+    return {
+      ...state,
+      ...action.payload
+    }
+
+
+
+
+
     // Login reducers
     case LOGGING_IN:
       return { ...state, loggingIn: true };
@@ -36,6 +50,14 @@ export default (state = initialState, action) => {
     // Set View reducers
 
     // Update Account reducers
+    case UPDATE_ACCOUNT: 
+    return {
+      ...state,
+      user: {
+        ...state.user,
+        username: action.payload.email
+      },
+    }
 
     // Real Estate reducers
 

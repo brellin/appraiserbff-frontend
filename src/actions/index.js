@@ -1,4 +1,20 @@
 import axios from "axios";
+ 
+//for mock data pull in CDM
+import mockData from '../MockData/sampleData.json'
+export const MOCK_DATA_PULL = "MOCK_DATA_PULL";
+export const mockDataPull = () => dispatch => {
+  console.log(mockData)
+  dispatch({type: MOCK_DATA_PULL, payload: mockData})
+}
+
+
+
+
+
+
+
+
 
 // Log in actions
 export const LOGGING_IN = "LOGGING_IN";
@@ -31,19 +47,20 @@ export const setUserView = view => {
     type: SET_USER_VIEW,
     payload: view
   };
-};
-export const updateUsername = username => dispatch => {
-  dispatch({ TYPE: UPDATE_USERNAME });
+}; 
+// export const updateUsername = username => dispatch => {
+//   dispatch({ TYPE: UPDATE_USERNAME });
 
-  // axios put for username
-};
-export const updatePassword = () => dispatch => {
-  dispatch({ TYPE: UPDATE_PASSWORD });
+//   // axios put for username
+// };
+// export const updatePassword = () => dispatch => {
+//   dispatch({ TYPE: UPDATE_PASSWORD });
 
-  // axios put for password
-};
-export const updateAccount = () => dispatch => {
-  dispatch({ TYPE: UPDATE_ACCOUNT });
+//   // axios put for password
+// };
+export const updateAccount = newSettings => dispatch => {
+  console.log(newSettings);
+  dispatch({ type: UPDATE_ACCOUNT, payload: newSettings });
 
   // axios put for username/password
 };

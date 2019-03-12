@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./widgetContainer.module.scss";
-
+import { Link } from "react-router-dom";
 import Widget from "../Widget";
 
 const props = {
@@ -128,7 +128,17 @@ function WidgetContainer() {
       />
     );
   });
-  return <div className={styles.widgetContainer}>{usersWidgets}</div>;
+  return (
+    <div className={styles.widgetContainer}>
+      <div className={styles.widgetTitle}>
+        <p>Widgets</p>
+        <Link to="/home/widgets">
+          <i class="fas fa-cogs" />
+        </Link>
+      </div>
+      {usersWidgets}
+    </div>
+  );
 }
 //
 export default WidgetContainer;

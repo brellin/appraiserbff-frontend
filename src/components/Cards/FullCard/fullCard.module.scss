@@ -1,0 +1,26 @@
+.cardSettings {
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.8);
+    position: absolute;
+    top: 0;
+  }
+  
+  .cardSettingsModal {
+    width: 800px;
+    padding: 20px 10px;
+    background: white;
+    margin: 200px auto;
+  }
+
+  .cardSettingsTop {
+    padding: 0 20px;
+    h2 {
+      margin: 10px 0;
+      font-size: 40px;
+    }
+    img{
+        width: 300px;
+        height: auto;
+    }
+}

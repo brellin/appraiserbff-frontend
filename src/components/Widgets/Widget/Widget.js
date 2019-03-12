@@ -12,8 +12,12 @@ function Widget(props) {
         <p>{widgetObj.data()}</p>
       </div>
       <div className="sortArrows">
-        <p>U</p>
-        <p>D</p>
+        <p>
+          <i className="fas fa-sort-amount-up" />
+        </p>
+        <p>
+          <i className={`fas fa-sort-amount-up ${styles.down}`} />
+        </p>
       </div>
     </div>
   );
