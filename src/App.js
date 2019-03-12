@@ -45,6 +45,7 @@ class App extends Component {
           exact
           render={props => <AccountSettings {...props} />}
         />
+
         <Route
           path="/home/cards/:id"
           exact
@@ -62,6 +63,7 @@ class App extends Component {
           exact
           render={props => <NewCard {...props} />}
         />
+
       </div>
     );
   }

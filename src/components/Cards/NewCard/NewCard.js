@@ -14,6 +14,12 @@ const NewCard = props => {
     const [sqFootage, setSqFootage] = useState("");
     const [bed, setBed] = useState("");
     const [bath, setBath] = useState("");
+    const [lotSize, setLotSize] = useState("");
+    const [yearBuilt, setYearBuilt] = useState("");
+    const [perSqFt, setPerSqFt] = useState("");
+    const [hoa, setHoa] = useState("");
+    const [proType, setProType] = useState("");
+    const [proAge, setProAge] = useState("");
 
     const getInfoFromZillow = () => {
         console.log("working");
@@ -104,23 +110,10 @@ const NewCard = props => {
 
                 <form className={styles.formTwo}>
                     <div>
-                        <label>sq footage:</label>
-                        <input 
-                        type="text" 
-                        style={{marginLeft: "20px"}}
-                        value={sqFootage}
-                        onChange={e => {
-                            e.preventDefault();
-                            setSqFootage(e.target.value);
-                        }}
-                        />
-                    </div>
-
-                    <div>
                         <label>bed:</label>
                         <input 
-                        type="text" 
-                        style={{marginLeft: "67px"}}
+                        type="number" 
+                        style={{marginLeft: "77px"}}
                         value={bed}
                         onChange={e => {
                             e.preventDefault();
@@ -132,8 +125,8 @@ const NewCard = props => {
                     <div>
                         <label>bath:</label>
                         <input 
-                        type="text" 
-                        style={{marginLeft: "63px"}}
+                        type="number" 
+                        style={{marginLeft: "73px"}}
                         value={bath}
                         onChange={e => {
                             e.preventDefault();
@@ -141,6 +134,105 @@ const NewCard = props => {
                         }}
                         />
                     </div>
+
+                    <div>
+                        <label>sq footage:</label>
+                        <input 
+                        type="number" 
+                        style={{marginLeft: "30px"}}
+                        value={sqFootage}
+                        onChange={e => {
+                            e.preventDefault();
+                            setSqFootage(e.target.value);
+                        }}
+                        />
+                    </div>
+
+                    <div>
+                        <label>lot size:</label>
+                        <input 
+                        type="number" 
+                        style={{marginLeft: "55px"}}
+                        value={lotSize}
+                        onChange={e => {
+                            e.preventDefault();
+                            setLotSize(e.target.value);
+                        }}
+                        />
+                    </div>
+
+                    <div>
+                        <label>year built:</label>
+                        <input 
+                        type="number" 
+                        style={{marginLeft: "40px"}}
+                        value={yearBuilt}
+                        onChange={e => {
+                            e.preventDefault();
+                            setYearBuilt(e.target.value);
+                        }}
+                        />
+                    </div>
+
+                    <div>
+                        <label>$/sq foot:</label>
+                        <input 
+                        type="number" 
+                        style={{marginLeft: "44px"}}
+                        value={perSqFt}
+                        onChange={e => {
+                            e.preventDefault();
+                            setPerSqFt(e.target.value);
+                        }}
+                        />
+                    </div>
+
+                    <div>
+                        <label>HOA/month:</label>
+                        <input 
+                        type="number" 
+                        style={{marginLeft: "21px"}}
+                        value={hoa}
+                        onChange={e => {
+                            e.preventDefault();
+                            setHoa(e.target.value);
+                        }}
+                        />
+                    </div>
+
+                    <div>
+                        <label>property type:</label>
+                        <input 
+                        type="text" 
+                        style={{marginLeft: "12px"}}
+                        value={proType}
+                        onChange={e => {
+                            e.preventDefault();
+                            setProType(e.target.value);
+                        }}
+                        />
+                    </div>
+
+                    <div>
+                        <label>property age:</label>
+                        <input 
+                        type="number" 
+                        style={{marginLeft: "14px"}}
+                        value={proAge}
+                        onChange={e => {
+                            e.preventDefault();
+                            setProAge(e.target.value);
+                        }}
+                        />
+                    </div>
+
+
+
+
+
+
+
+
 
                     <button 
                     onClick={e => {

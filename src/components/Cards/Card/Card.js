@@ -9,7 +9,7 @@ const Card = props => {
             <div className={styles.top}>
                 <div>
                     <p style={{textAlign: "left", fontSize: "14px", textDecoration: "underline"}}>address</p>
-                    <p style={{fontSize: "22px"}}>{props.item.address}</p>
+                    <p style={{fontSize: "16px", padding: "2px"}}>{props.item.address}</p>
                 </div>
                 <img src={props.item.picture} />
             </div>
