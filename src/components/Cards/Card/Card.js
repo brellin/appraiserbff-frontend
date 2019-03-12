@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './card.module.scss'
 import { Link } from 'react-router-dom';
- 
+  
 const Card = props => {
     return(
         <div className={styles.card}>
@@ -9,7 +9,7 @@ const Card = props => {
             <div className={styles.top}>
                 <div>
                     <p style={{textAlign: "left", fontSize: "14px", textDecoration: "underline"}}>address</p>
-                    <p>{props.item.address}</p>
+                    <p style={{fontSize: "22px"}}>{props.item.address}</p>
                 </div>
                 <img src={props.item.picture} />
             </div>
