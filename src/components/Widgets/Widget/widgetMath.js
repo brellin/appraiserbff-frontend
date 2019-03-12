@@ -11,8 +11,8 @@ function averageAge(realEstate) {
 
 function averageOnMarket(realEstate) {
   const totalTime = realEstate.reduce((acc, estate) => {
-    const onMarket = new Date(estate.onMarket);
-    const timeOnMarket = new Date() - onMarket;
+    const dateOnMarket = new Date(estate.onMarket);
+    const timeOnMarket = new Date() - dateOnMarket;
     return acc + timeOnMarket;
   }, 0);
   const ms = Math.round(totalTime / realEstate.length);
