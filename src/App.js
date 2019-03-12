@@ -33,7 +33,6 @@ class App extends Component {
 
         <Route path="/home/cards/new" exact render={props => <NewCard {...props} />} />
 
-
       </div>
     );
   }

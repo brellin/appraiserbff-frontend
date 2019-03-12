@@ -1,6 +1,6 @@
 .accountSettings {
     width: 100vw;
-    height: 100vh;
+    height: 120vh;
     background: rgba(0, 0, 0, 0.8);
     position: absolute;
     top: 0;
@@ -28,12 +28,12 @@
       }
     }
   }
-  
+   
   .accountSettingsModal {
     width: 800px;
     padding: 20px 10px;
     background: white;
-    margin: 200px auto;
+    margin: 15vh auto;
   }
   
   .accSettingsTop {
@@ -43,6 +43,7 @@
     padding: 0 20px;
     h2 {
       margin: 10px 0;
+      font-size: 35px;
     }
   }
   
