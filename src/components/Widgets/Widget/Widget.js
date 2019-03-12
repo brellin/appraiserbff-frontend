@@ -7,13 +7,17 @@ function Widget(props) {
 
   return (
     <div className={styles.widget}>
-      <div className="info">
+      <div className={styles.info}>
         <h2>{widgetObj.header}</h2>
         <p>{widgetObj.data()}</p>
       </div>
-      <div className="sortArrows">
-        <p>U</p>
-        <p>D</p>
+      <div className={styles.sortArrows}>
+        <p>
+          <i className="fas fa-sort-amount-up" />
+        </p>
+        <p>
+          <i className={`fas fa-sort-amount-up ${styles.down}`} />
+        </p>
       </div>
     </div>
   );
