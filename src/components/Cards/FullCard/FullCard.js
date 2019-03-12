@@ -2,6 +2,12 @@ import React from 'react'
 import styles from './fullCard.module.scss'
 import { Link } from 'react-router-dom'
 
+import { connect } from 'react-redux'
+
+import { updateRealEstate, deleteRealEstate } from '../../../actions'
+
+
+
 const FullCard = props => {
     console.log(props);
     return(
@@ -21,9 +27,20 @@ const FullCard = props => {
                 <p>{props.built}</p>
                 <p>{props.onMarket}</p>
                 <p>{props.zestimate}</p>
+
+
+                {/* <button>update</button> //do we want this to be a prompt for a form??  */}
+
+                <button
+                id={props.id}
+                onClick={e => {
+                    e.preventDefault();
+                    props.deleteRealEstate(e.target.id)
+                }}
+                >delete</button>
             </div>
         </div>
     );
 }
 
-export default FullCard
+export default connect(null, {updateRealEstate, deleteRealEstate})(FullCard)

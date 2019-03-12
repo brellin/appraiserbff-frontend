@@ -59,6 +59,10 @@ export default (state = initialState, action) => {
       },
     }
 
+    case UPDATE_REAL_ESTATE: 
+      console.log(action.payload);
+      return state;
+
     // Real Estate reducers
 
     // Widget reducers

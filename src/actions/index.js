@@ -69,13 +69,11 @@ export const sortRealEstate = (category, order) => {
     payload: { category, order }
   };
 };
-export const updateWidget = newWidgetList => dispatch => {
+export const updateWidgets = newWidgetList => dispatch => {
   dispatch({ type: UPDATE_WIDGETS });
 
   // axios put request to OVERRIDE previous widget data
 };
-
-
 
 
 export const addRealEstate = realEstate => dispatch => {
@@ -88,17 +86,21 @@ export const addRealEstate = realEstate => dispatch => {
 };
 
 
-
-
-
-
 export const deleteRealEstate = id => dispatch => {
   dispatch({ type: DELETE_REAL_ESTATE });
 
+  axios.delete("", id)
+      .then(res => dispatch({ type: DELETE_REAL_ESTATE, payload: res }))
+      .catch(err => console.log(err))
+
   // axios delete request
 };
+
+
 export const updateRealEstate = realEstate => dispatch => {
-  dispatch({ type: UPDATE_REAL_ESTATE });
+  axios.put("", realEstate)
+    .then(res => dispatch({ type: UPDATE_REAL_ESTATE, payload: res }))
+    .catch(err => console.log(err))
 
   // axios put request
 };
