@@ -6,7 +6,7 @@ import Widget from "../Widget";
 
 function WidgetContainer(props) {
   const usersWidgets = props.widgets.map((key, i) => {
-    return <Widget key={i} widget={key} />;
+    return <Widget key={key} widget={key} />;
   });
   return (
     <div className={styles.widgetContainer}>

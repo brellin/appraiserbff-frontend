@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./widget.module.scss";
 import widgetData from "./widgetData.js";
 import { connect } from "react-redux";
@@ -37,8 +37,14 @@ function Widget(props) {
     console.log(newREOrder);
     props.sortRealEstate(newREOrder);
   };
+  console.log(props.userView);
+  // Real Estate objects based on view
+  const localRE =
+    props.userView === "all"
+      ? [...props.realEstate.sell, ...props.realEstate.buy]
+      : props.realEstate[props.userView];
 
-  const widgetObj = widgetData[props.widget](props.realEstate);
+  const widgetObj = widgetData[props.widget](localRE);
 
   return (
     <div className={styles.widget}>
@@ -66,7 +72,7 @@ function Widget(props) {
 
 const mapStateToProps = state => ({
   widgets: state.user.widgets,
-  realEstate: state.user.realEstate[state.userView],
+  realEstate: state.user.realEstate,
   userView: state.userView
 });
 

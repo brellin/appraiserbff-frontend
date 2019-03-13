@@ -46,6 +46,12 @@ export default (state = initialState, action) => {
       return { ...state, loggingIn: false, error: action.payload };
 
     // Set View reducers
+    case SET_USER_VIEW:
+      console.log(action.payload);
+      return {
+        ...state,
+        userView: action.payload
+      };
 
     // Update Account reducers
     case UPDATE_ACCOUNT:
