@@ -14,8 +14,8 @@ const CardContainer = props => {
     const { order } = props.sortBy;
     const sorted =
       props.userView === "all"
-        ? [...props.realEstate.sell, ...props.realEstate.buy]
-        : [...props.realEstate[props.userView]];
+        ? [...props.realEstate]
+        : props.realEstate.filter(estate => estate.mode === props.userView);
 
     // if (!property || !order) {
     //   return sorted;
@@ -50,8 +50,16 @@ const CardContainer = props => {
   };
 
   // Real Estate objects based on view
-  const [localRealEstate, setlocalRE] = useState(realEstateSorter());
-
+  const [localRealEstate, setLocalRE] = useState(props.realEstate);
+  // componentDidUpdate
+  useEffect(
+    () => {
+      console.log("SORTBY:", props.sortBy);
+      const sorted = realEstateSorter();
+      setLocalRE(sorted);
+    },
+    [props.userView, props.realEstate, props.sortBy]
+  );
   return (
     <div className={styles.cardContainerWrapper}>
       <div className={styles.flexTop}>
@@ -80,14 +88,15 @@ const CardContainer = props => {
             id="myRange"
             onChange={e => {
               setFBS(e.target.value); //returns 1 or 3 tepending on position.... pretty cool, didnt know about this feature
-
-              if (filteredByStatus == 1) {
+              // setFBS is async so using the current value
+              // to trigger the action
+              if (e.target.value === "1") {
                 props.setUserView("all");
               }
-              if (filteredByStatus == 2) {
+              if (e.target.value === "2") {
                 props.setUserView("buy");
               }
-              if (filteredByStatus == 3) {
+              if (e.target.value === "3") {
                 props.setUserView("sell");
               }
             }}

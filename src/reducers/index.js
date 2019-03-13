@@ -7,7 +7,7 @@ import {
   ADD_REAL_ESTATE,
   UPDATING_REAL_ESTATE,
   SET_REAL_ESTATE_SORT,
-  SET_REAL_ESTATE,
+  DELETE_REAL_ESTATE,
   UPDATING_WIDGETS,
   SET_WIDGETS,
   MOCK_DATA_PULL
@@ -17,10 +17,10 @@ const initialState = {
   user: {
     username: "",
     organization: "",
-    realEstate: { buy: [], sell: [] },
+    realEstate: [],
     widgets: []
   },
-  userView: "buy",
+  userView: "sell",
   sortBy: { property: "zestimate", order: "highToLow" },
   loggingIn: false,
   updatingAccount: false,
@@ -30,6 +30,7 @@ const initialState = {
 };
 
 export default (state = initialState, action) => {
+  console.log("FOUND ACTION: ", action.type);
   switch (action.type) {
     case MOCK_DATA_PULL:
       console.log(action.payload.user);
@@ -58,6 +59,7 @@ export default (state = initialState, action) => {
     case UPDATE_ACCOUNT:
       return {
         ...state,
+        error: null,
         user: {
           ...state.user,
           username: action.payload.email
@@ -68,25 +70,56 @@ export default (state = initialState, action) => {
     case UPDATING_REAL_ESTATE:
       return { ...state, updatingRealEstate: true };
     case ADD_REAL_ESTATE:
+      // If John returns full realEstate Array
+      // return {
+      //   ...state,
+      //   updatingRealEstate: false,
+      //   user: { ...state.user, realEstate: action.payload }
+
+      // If John returns single realEstate Object
       return {
         ...state,
         updatingRealEstate: false,
-        user: { ...state.user, realEstate: action.payload }
-      };
-    case SET_REAL_ESTATE_SORT:
-      return { ...state, sortBy: action.payload };
-    case SET_REAL_ESTATE:
-      return {
-        ...state,
-        updatingRealEstate: false,
+        error: null,
         user: {
           ...state.user,
-          realEstate: {
-            ...state.user.realEstate,
-            [state.userView]: action.payload
+          realEstate: [...state.user.realEstate, action.payload]
+        }
+      };
+
+    case SET_REAL_ESTATE_SORT:
+      console.log("Updating sort", action.payload);
+      return { ...state, sortBy: action.payload };
+    case DELETE_REAL_ESTATE:
+      // action.payload should be an id of the deleted object
+      const getObjectIndex = () => {
+        for (let i = 0; i < state.user.realEstate.length; i++) {
+          if (state.user.realEstate[i].id === action.payload) {
+            return i;
           }
         }
       };
+      const index = getObjectIndex();
+
+      if (index) {
+        return {
+          ...state,
+          error: null,
+          updatingRealEstate: false,
+          user: {
+            ...state.user,
+            realEstate: {
+              ...state.user.realEstate,
+              [state.userView]: action.payload
+            }
+          }
+        };
+      } else {
+        return {
+          ...state,
+          error: "Cannot delete realEstate object.  ID not found"
+        };
+      }
 
     // Widget reducers
     case UPDATING_WIDGETS:

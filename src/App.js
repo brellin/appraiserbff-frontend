@@ -13,7 +13,7 @@ import "./App.scss";
 import TitleBar from "./components/Title/TitleBar";
 import CardContainer from "./components/Cards/CardContainer";
 import WidgetContainer from "./components/Widgets/WidgetContainer";
-import Login from './components/Login'
+import Login from "./components/Login";
 // Widget Imports
 import ManageWidgets from "./components/Widgets/ManageWidgets";
 // Card Imports
@@ -30,7 +30,6 @@ class App extends Component {
     return (
       <div className="appContainer">
         <Route path="/Login" render={props => <Login {...props} />} />
-
 
         {/* Home Routes */}
         <header className="titleBar">
@@ -74,7 +73,7 @@ class App extends Component {
 
 const mapStateToProps = state => {
   return {
-    realEstate: [...state.user.realEstate.buy, ...state.user.realEstate.sell]
+    realEstate: state.realEstate
   };
 };
 

@@ -7,12 +7,12 @@ import { setSortBy } from "../../../actions";
 function Widget(props) {
   const localRealEstate =
     props.userView === "all"
-      ? [...props.realEstate.sell, ...props.realEstate.buy]
-      : [...props.realEstate[props.userView]];
+      ? [...props.realEstate]
+      : props.realEstate.filter(estate => estate.mode === props.userView);
   const widgetObj = widgetData[props.widget](localRealEstate);
 
   const updateSort = (property, order) => {
-    setSortBy({ property, order });
+    props.setSortBy({ property, order });
   };
 
   return (
