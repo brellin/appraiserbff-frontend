@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 import { connect } from 'react-redux'
 
-import { updateRealEstate, deleteRealEstate } from '../../../actions'
+import { setRealEstate } from '../../../actions'
 
 
 
@@ -30,15 +30,12 @@ const FullCard = props => {
                     <p>zestimate: <span>{props.zestimate}</span></p>
                 </div>
 
-
-                {/* <button>update</button> //do we want this to be a prompt for a form??  */}
-
                 <button
                 className={styles.deleteButton}
                 id={props.id}
                 onClick={e => {
                     e.preventDefault();
-                    props.deleteRealEstate(e.target.id)
+                    props.setRealEstate();
                 }}
                 >delete</button>
             </div>
@@ -46,4 +43,4 @@ const FullCard = props => {
     );
 }
 
-export default connect(null, {updateRealEstate, deleteRealEstate})(FullCard)
+export default connect(null, {setRealEstate})(FullCard)

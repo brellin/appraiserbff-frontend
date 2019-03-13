@@ -52,7 +52,7 @@ const NewCard = props => {
             built: yearBuilt,
             picture: "https://i.imgur.com/ufZjaLz.jpg"
           }
-        let buySell = null;
+        let buySell = "";
 
         if(sliderPos == 1){
             buySell = "buy"
@@ -61,7 +61,7 @@ const NewCard = props => {
         }
 
                         //gunu have to also pass it buySell so it know where to put it
-          props.addRealEstate(newProperty);
+          props.addRealEstate(newProperty, buySell);
     }
 
     return(
