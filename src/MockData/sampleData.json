@@ -100,9 +100,9 @@
     },
     "widgets": ["averageZestimate", "timeOnMarket"]
   },
-  "loggingln": false,
+  "loggingIn": false,
   "updatingAccount": false,
-  "udpatingRealEstale": false,
+  "udpatingRealEstate": false,
   "updatingWidgets": false,
   "error": null
 }

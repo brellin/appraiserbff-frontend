@@ -74,6 +74,13 @@ export const addRealEstate = (realEstate, buyOrSell) => dispatch => {
     .catch(err => console.log(err));
 };
 
+export const sortRealEstate = realEstateOrder => {
+  return {
+    type: SET_REAL_ESTATE,
+    payload: realEstateOrder
+  };
+};
+
 export const setRealEstate = realEstate => dispatch => {
   dispatch({ type: UPDATING_REAL_ESTATE });
   axios

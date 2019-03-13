@@ -1,8 +1,8 @@
 import React from "react";
 import styles from "./widgetContainer.module.scss";
 import { Link } from "react-router-dom";
-import Widget from "../Widget";
 import { connect } from "react-redux";
+import Widget from "../Widget";
 
 function WidgetContainer(props) {
   const usersWidgets = props.widgets.map((key, i) => {

@@ -2,11 +2,11 @@ import React from "react";
 import styles from "./widget.module.scss";
 import widgetData from "./widgetData.js";
 import { connect } from "react-redux";
-import { setRealEstate } from "../../../actions";
+import { sortRealEstate } from "../../../actions";
 
 function Widget(props) {
   // sort array in bul or sell
-  const sortRealEstate = (sortProp, order) => {
+  const realEstateSorter = (sortProp, order) => {
     const newREOrder = [...props.realEstate];
     newREOrder.sort((a, b) => {
       if (typeof a[sortProp] === "number") {
@@ -35,7 +35,7 @@ function Widget(props) {
       // do nothing
     });
     console.log(newREOrder);
-    props.setRealEstate(newREOrder);
+    props.sortRealEstate(newREOrder);
   };
 
   const widgetObj = widgetData[props.widget](props.realEstate);
@@ -49,13 +49,13 @@ function Widget(props) {
       <div className={styles.sortArrows}>
         <p>
           <i
-            onClick={() => sortRealEstate(widgetObj.estateProp, "highToLow")}
+            onClick={() => realEstateSorter(widgetObj.estateProp, "highToLow")}
             className="fas fa-sort-amount-up"
           />
         </p>
         <p>
           <i
-            onClick={() => sortRealEstate(widgetObj.estateProp, "lowToHigh")}
+            onClick={() => realEstateSorter(widgetObj.estateProp, "lowToHigh")}
             className={`fas fa-sort-amount-up ${styles.down}`}
           />
         </p>
@@ -72,5 +72,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { setRealEstate }
+  { sortRealEstate }
 )(Widget);
