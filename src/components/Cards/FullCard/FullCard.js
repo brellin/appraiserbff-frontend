@@ -2,6 +2,12 @@ import React from 'react'
 import styles from './fullCard.module.scss'
 import { Link } from 'react-router-dom'
 
+import { connect } from 'react-redux'
+
+import { setRealEstate } from '../../../actions'
+
+
+
 const FullCard = props => {
     console.log(props);
     return(
@@ -16,14 +22,25 @@ const FullCard = props => {
                 </div>
                 <hr />
 
-                <p>{props.bathrooms}</p>
-                <p>{props.bedrooms}</p>
-                <p>{props.built}</p>
-                <p>{props.onMarket}</p>
-                <p>{props.zestimate}</p>
+                <div className={styles.bottom}>
+                    <p>bath:      <span>{props.bathrooms}</span></p>
+                    <p>bed:       <span>{props.bedrooms}</span></p>
+                    <p>built:     <span>{props.built}</span></p>
+                    <p>onMarket:  <span>{props.onMarket}</span></p>
+                    <p>zestimate: <span>{props.zestimate}</span></p>
+                </div>
+
+                <button
+                className={styles.deleteButton}
+                id={props.id}
+                onClick={e => {
+                    e.preventDefault();
+                    props.setRealEstate();
+                }}
+                >delete</button>
             </div>
         </div>
     );
 }
 
-export default FullCard
+export default connect(null, {setRealEstate})(FullCard)

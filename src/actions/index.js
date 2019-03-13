@@ -12,6 +12,8 @@ export const mockDataPull = () => dispatch => {
 export const LOGGING_IN = "LOGGING_IN";
 export const LOGIN_SUCCESSFUL = "LOGIN_SUCCESSFUL";
 export const LOGIN_ERROR = "LOGIN_ERROR";
+//new user action
+export const CREATE_NEW_ACCOUNT = "CREATE_NEW_ACCOUNT"
 // User context actions
 export const SET_USER_VIEW = "SET_USER_VIEW";
 // Update user account
@@ -88,3 +90,12 @@ export const setRealEstate = realEstate => dispatch => {
     .then(res => dispatch({ type: SET_REAL_ESTATE, payload: res.data }))
     .catch(err => console.log(err));
 };
+
+export const createAccount = (newAcc, newPassword) => dispatch => {
+  console.log(newAcc);
+  console.log(newPassword);
+  dispatch({type: CREATE_NEW_ACCOUNT})
+  axios.post("")
+    .then(res => console.log(res))
+    .catch(err => console.log(err))
+}

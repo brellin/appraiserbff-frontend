@@ -13,6 +13,7 @@ import "./App.scss";
 import TitleBar from "./components/Title/TitleBar";
 import CardContainer from "./components/Cards/CardContainer";
 import WidgetContainer from "./components/Widgets/WidgetContainer";
+import Login from './components/Login'
 // Widget Imports
 import ManageWidgets from "./components/Widgets/ManageWidgets";
 // Card Imports
@@ -28,6 +29,9 @@ class App extends Component {
   render() {
     return (
       <div className="appContainer">
+        <Route path="/Login" render={props => <Login {...props} />} />
+
+
         {/* Home Routes */}
         <header className="titleBar">
           <Route path="/home" render={props => <TitleBar {...props} />} />

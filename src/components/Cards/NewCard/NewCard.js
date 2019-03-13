@@ -2,6 +2,8 @@ import React, { useState, useEffect} from 'react'
 import styles from './newCard.module.scss';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import { connect } from 'react-redux';
+import { addRealEstate } from '../../../actions';
 
 const NewCard = props => {
             //info for top form
@@ -21,6 +23,10 @@ const NewCard = props => {
     const [proType, setProType] = useState("");
     const [proAge, setProAge] = useState("");
 
+    const [sliderPos, setSliderPos] = useState(1);
+
+    
+    
     const getInfoFromZillow = () => {
         console.log("working");
         
@@ -35,7 +41,27 @@ const NewCard = props => {
     }
 
     const submitForm = () => {
-        console.log("submitting form....")
+        const newProperty = {
+            id: Date.now(),
+            address: address,
+            city: city,
+            state: thisState,
+            zipcode: zip,
+            bedrooms: bed,
+            bathrooms: bath,
+            built: yearBuilt,
+            picture: "https://i.imgur.com/ufZjaLz.jpg"
+          }
+        let buySell = "";
+
+        if(sliderPos == 1){
+            buySell = "buy"
+        }else{
+            buySell = "sell"
+        }
+
+                        //gunu have to also pass it buySell so it know where to put it
+          props.addRealEstate(newProperty, buySell);
     }
 
     return(
@@ -139,7 +165,7 @@ const NewCard = props => {
                         <label>sq footage:</label>
                         <input 
                         type="number" 
-                        style={{marginLeft: "30px"}}
+                        style={{marginLeft: "34px"}}
                         value={sqFootage}
                         onChange={e => {
                             e.preventDefault();
@@ -226,8 +252,18 @@ const NewCard = props => {
                         />
                     </div>
 
-
-
+                    <div style={{display: "flex", alignItems: "center"}}>
+                        {sliderPos == 1 ? <label style={{fontSize: "26px", color: "red"}}>buy</label> : <label style={{fontSize: "26px", color: "green"}}>sell</label>}
+                        <input 
+                        type="range" 
+                        min="1" 
+                        max="2" 
+                        value={sliderPos} 
+                        className={styles.slider} 
+                        id="myRange" 
+                        onChange={e => setSliderPos(e.target.value)}
+                        />
+                    </div>
 
 
 
@@ -248,4 +284,8 @@ const NewCard = props => {
     );
 }
 
-export default NewCard
+
+
+
+
+export default connect(null, { addRealEstate })(NewCard)
