@@ -4,14 +4,20 @@ import { Link } from 'react-router-dom'
 
 import { connect } from 'react-redux'
 
-import { setRealEstate } from '../../../actions'
+import { deleteRealEstate } from '../../../actions'
 
 
-
+ 
 const FullCard = props => {
     console.log(props);
     return(
-        <div className={styles.cardSettings}>
+        <div>
+            <Link to="/home/">
+                <div className={styles.cardSettings}>
+                </div>
+
+            </Link>
+
             <div className={styles.cardSettingsModal}>
                 <div className={styles.cardSettingsTop}>
                     <Link to="/home/">
@@ -35,7 +41,7 @@ const FullCard = props => {
                 id={props.id}
                 onClick={e => {
                     e.preventDefault();
-                    props.setRealEstate();
+                    props.deleteRealEstate(props.id);
                 }}
                 >delete</button>
             </div>
@@ -43,4 +49,4 @@ const FullCard = props => {
     );
 }
 
-export default connect(null, {setRealEstate})(FullCard)
+export default connect(null, {deleteRealEstate})(FullCard)

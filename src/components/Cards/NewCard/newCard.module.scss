@@ -1,12 +1,15 @@
 .newCard {
     width: 100vw;
     height: 120vh;
-    background: rgba(0, 0, 0, 0.1);
+    background: rgba(0, 0, 0, 0.8);
     position: absolute;
     top: 0;
   }
   
   .newCardModal {
+    position: absolute;
+    top: 0;
+    left: 15vw;
     width: 800px;
     padding: 20px 10px;
     background: white;
@@ -84,14 +87,14 @@
   .slider::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
-    width: 45px;
+    width: 50%;
     height: 25px;
     background: rgb(189, 40, 40);
     cursor: pointer;
   }
   
   .slider::-moz-range-thumb {
-    width: 25px;
+    width: 50%;
     height: 25px;
     background: rgb(189, 40, 40);
     cursor: pointer;

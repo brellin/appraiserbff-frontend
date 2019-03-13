@@ -13,7 +13,7 @@ export const LOGGING_IN = "LOGGING_IN";
 export const LOGIN_SUCCESSFUL = "LOGIN_SUCCESSFUL";
 export const LOGIN_ERROR = "LOGIN_ERROR";
 //new user action
-export const CREATE_NEW_ACCOUNT = "CREATE_NEW_ACCOUNT"
+export const CREATE_NEW_ACCOUNT = "CREATE_NEW_ACCOUNT";
 // User context actions
 export const SET_USER_VIEW = "SET_USER_VIEW";
 // Update user account
@@ -24,8 +24,9 @@ export const UPDATE_PASSWORD = "UPDATE_PASSWORD";
 export const UPDATE_ACCOUNT = "UPDATE_ACCOUNT";
 // Real Estate actions
 export const UPDATING_REAL_ESTATE = "UPDATING_REAL_ESTATE";
+export const SET_REAL_ESTATE_SORT = "SET_REAL_ESTATE_SORT";
 export const ADD_REAL_ESTATE = "ADD_REAL_ESTATE";
-export const SET_REAL_ESTATE = "SET_REAL_ESTATE";
+export const DELETE_REAL_ESTATE = "DELETE_REAL_ESTATE";
 // Widget actions
 export const UPDATING_WIDGETS = "UPDATING_WIDGETS";
 export const SET_WIDGETS = "SET_WIDGETS";
@@ -76,26 +77,28 @@ export const addRealEstate = (realEstate, buyOrSell) => dispatch => {
     .catch(err => console.log(err));
 };
 
-export const sortRealEstate = realEstateOrder => {
+export const setSortBy = sortObj => {
+  console.log("ACTION: ", sortObj);
   return {
-    type: SET_REAL_ESTATE,
-    payload: realEstateOrder
+    type: SET_REAL_ESTATE_SORT,
+    payload: sortObj
   };
 };
 
-export const setRealEstate = realEstate => dispatch => {
+export const deleteRealEstate = id => dispatch => {
   dispatch({ type: UPDATING_REAL_ESTATE });
   axios
-    .put("", realEstate)
-    .then(res => dispatch({ type: SET_REAL_ESTATE, payload: res.data }))
+    .delete("", id)
+    .then(res => dispatch({ type: DELETE_REAL_ESTATE, payload: id }))
     .catch(err => console.log(err));
 };
 
 export const createAccount = (newAcc, newPassword) => dispatch => {
   console.log(newAcc);
   console.log(newPassword);
-  dispatch({type: CREATE_NEW_ACCOUNT})
-  axios.post("")
+  dispatch({ type: CREATE_NEW_ACCOUNT });
+  axios
+    .post("")
     .then(res => console.log(res))
-    .catch(err => console.log(err))
-}
+    .catch(err => console.log(err));
+};

@@ -38,7 +38,12 @@ const AccountSettings = props => {
   };
 
   return (
-    <div className={styles.accountSettings}>
+    <div>
+      <Link to="/home/">
+        <div className={styles.accountSettings}>  
+        </div>
+      </Link>
+
       <div className={styles.accountSettingsModal}>
         <div className={styles.accSettingsTop}>
           <h2>Account Settings</h2>
@@ -114,6 +119,7 @@ const AccountSettings = props => {
         </form>
       </div>
     </div>
+    
   );
 };
 
