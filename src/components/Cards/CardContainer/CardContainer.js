@@ -8,6 +8,50 @@ import { setUserView } from "../../../actions";
 const CardContainer = props => {
   const [filteredByStatus, setFBS] = useState(1);
 
+  // sort array in buy, sell, all
+  const realEstateSorter = () => {
+    const { property } = props.sortBy;
+    const { order } = props.sortBy;
+    const sorted =
+      props.userView === "all"
+        ? [...props.realEstate.sell, ...props.realEstate.buy]
+        : [...props.realEstate[props.userView]];
+
+    // if (!property || !order) {
+    //   return sorted;
+    // }
+
+    return sorted.sort((a, b) => {
+      if (typeof a[property] === "number") {
+        // Sort by number
+
+        //Sort high-to-low or low-to-high based on input
+        return order === "lowToHigh"
+          ? a[property] - b[property]
+          : b[property] - a[property];
+      } else if (typeof a[property] === "string") {
+        // Sort strings
+        const aProp = a[property].toLowerCase();
+        const bProp = b[property].toLowerCase();
+
+        if (aProp === bProp) {
+          // If they are the same string, do nothing
+          return 0;
+        } else {
+          // Otherwise swap their order, based on input
+          const top = order === "highToLow" ? -1 : 1;
+          const bottom = order === "highToLow" ? 1 : -1;
+          return aProp < bProp ? bottom : top;
+        }
+      }
+      // In case I messed something up and type isn't a string or number,
+      // do nothing
+    });
+  };
+
+  // Real Estate objects based on view
+  const [localRealEstate, setlocalRE] = useState(realEstateSorter());
+
   return (
     <div className={styles.cardContainerWrapper}>
       <div className={styles.flexTop}>
@@ -55,17 +99,9 @@ const CardContainer = props => {
         </Link>
       </div>
       <div className={styles.cardContainer}>
-        {filteredByStatus == 1 || filteredByStatus == 2
-          ? props.realEstate.buy.map(item => {
-              return <Card mode="buy" key={item.id} item={item} />;
-            })
-          : null}
-
-        {filteredByStatus == 1 || filteredByStatus == 3
-          ? props.realEstate.sell.map(item => {
-              return <Card mode="sell" key={item.id} item={item} />;
-            })
-          : null}
+        {localRealEstate.map(item => (
+          <Card mode={item.mode} key={item.id} item={item} />
+        ))}
       </div>
     </div>
   );
@@ -74,7 +110,8 @@ const CardContainer = props => {
 const mapStateToProps = state => {
   return {
     realEstate: state.user.realEstate,
-    userView: state.userView
+    userView: state.userView,
+    sortBy: state.sortBy
   };
 };
 

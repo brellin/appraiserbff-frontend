@@ -6,7 +6,7 @@ import {
   UPDATE_ACCOUNT,
   ADD_REAL_ESTATE,
   UPDATING_REAL_ESTATE,
-  SORT_REAL_ESTATE,
+  SET_REAL_ESTATE_SORT,
   SET_REAL_ESTATE,
   UPDATING_WIDGETS,
   SET_WIDGETS,
@@ -21,9 +21,10 @@ const initialState = {
     widgets: []
   },
   userView: "buy",
+  sortBy: { property: "zestimate", order: "highToLow" },
   loggingIn: false,
   updatingAccount: false,
-  updatingRealEstate: false,
+  udpatingRealEstate: false,
   updatingWidgets: false,
   error: null
 };
@@ -72,6 +73,8 @@ export default (state = initialState, action) => {
         updatingRealEstate: false,
         user: { ...state.user, realEstate: action.payload }
       };
+    case SET_REAL_ESTATE_SORT:
+      return { ...state, sortBy: action.payload };
     case SET_REAL_ESTATE:
       return {
         ...state,
