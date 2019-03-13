@@ -33,9 +33,9 @@ class App extends Component {
 
 
         {/* Home Routes */}
-        <section className="titleBar">
+        <header className="titleBar">
           <Route path="/home" render={props => <TitleBar {...props} />} />
-        </section>
+        </header>
         <main className="content">
           <Route path="/home" component={WidgetContainer} />
           <Route path="/home" render={props => <CardContainer {...props} />} />
@@ -67,7 +67,6 @@ class App extends Component {
           exact
           render={props => <NewCard {...props} />}
         />
-
       </div>
     );
   }

@@ -64,13 +64,27 @@ const CardContainer = props => {
 
             </div>
         </div>
-    );
-}
+        <Link to="/home/cards/new">
+          <button>New Estimate</button>
+        </Link>
+      </div>
+      <div className={styles.cardContainer}>
+        {props.realEstate.buy.map(item => {
+          return <Card mode="buy" key={item.id} item={item} />;
+        })}
+        {props.realEstate.sell.map(item => {
+          return <Card mode="sell" key={item.id} item={item} />;
+        })}
+      </div>
+    </div>
+  );
+};
 
 const mapStateToProps = state => {
-    return{
-        realEstate: state.user.realEstate
-    }
-}
+  return {
+    realEstate: state.user.realEstate
+  };
+};
 
 export default connect(mapStateToProps, { setUserView })(CardContainer);
+
