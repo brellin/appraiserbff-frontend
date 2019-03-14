@@ -13,7 +13,7 @@ import "./App.scss";
 import TitleBar from "./components/Title/TitleBar";
 import CardContainer from "./components/Cards/CardContainer";
 import WidgetContainer from "./components/Widgets/WidgetContainer";
-import PrivateRoute from './components/Login/VerifyLogin'
+import PrivateRoute from "./components/Login/VerifyLogin";
 
 // Widget Imports
 import ManageWidgets from "./components/Widgets/ManageWidgets";
@@ -22,6 +22,7 @@ import NewCard from "./components/Cards/NewCard";
 import FullCard from "./components/Cards/FullCard";
 // Misc Imports
 import AccountSettings from "./components/Title/AccountSettings/index";
+import Login from "./components/Login/";
 
 class App extends Component {
   componentDidMount() {
