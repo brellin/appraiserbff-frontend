@@ -30,6 +30,7 @@ const initialState = {
 };
 
 export default (state = initialState, action) => {
+  console.log("FOUND ACTION: ", action.type);
   switch (action.type) {
     case MOCK_DATA_PULL:
       console.log(action.payload.user);

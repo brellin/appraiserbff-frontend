@@ -20,7 +20,7 @@ const Card = props => {
             </div>
             <hr />
             <div className={styles.seeMore}>
-                <Link to={`/home/cards/${props.item.id}`} style={{color: "blue"}}>see more details</Link>
+                <Link to={`/home/card/${props.item.id}`} style={{color: "blue"}}>see more details</Link>
                 <p>{props.mode === "sell" ? <span style={{color: "green"}}>sell</span> : <span style={{color: "red"}}>buy</span>}</p>
             </div>
 

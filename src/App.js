@@ -13,7 +13,8 @@ import "./App.scss";
 import TitleBar from "./components/Title/TitleBar";
 import CardContainer from "./components/Cards/CardContainer";
 import WidgetContainer from "./components/Widgets/WidgetContainer";
-import Login from "./components/Login";
+import PrivateRoute from './components/Login/VerifyLogin'
+
 // Widget Imports
 import ManageWidgets from "./components/Widgets/ManageWidgets";
 // Card Imports
@@ -50,7 +51,7 @@ class App extends Component {
         />
 
         <Route
-          path="/home/cards/:id"
+          path="/home/card/:id"
           exact
           render={props => (
             <FullCard
@@ -66,6 +67,8 @@ class App extends Component {
           exact
           render={props => <NewCard {...props} />}
         />
+
+        {/* <PrivateRoute /> redirects to whatever component is passed to it if local storage has an auth toekn, else redirects to login */}
       </div>
     );
   }

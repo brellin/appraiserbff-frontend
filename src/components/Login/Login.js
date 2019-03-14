@@ -38,12 +38,20 @@ const Login = props => {
         }
     }
 
+
+
+
+
+
+
     return(
         <div className={styles.fullPage}>
 
 
             <form className={styles.loginForm} style={view ? null : {display: "none"}}>
                 <label>username/email</label>
+
+
                 <input 
                 type="text" 
                 value={username}
@@ -65,7 +73,7 @@ const Login = props => {
                         username: username,
                         password: password
                     }
-
+ 
                     props.logUserIn(credentials)
                 }}
                 >submit</button>
@@ -114,7 +122,16 @@ const Login = props => {
                 <button
                 type="submit"
                 onClick={e => {
-                    createAccount(e);
+                    if(newPassword === retypePass){
+                        const newAccount = {
+                            username: newUsername,
+                            organization: companyName,
+                            password: newPassword
+                        }
+
+                        props.createAccount(newAccount);
+                    }
+                    
                 }}
                 >create account</button>
                 

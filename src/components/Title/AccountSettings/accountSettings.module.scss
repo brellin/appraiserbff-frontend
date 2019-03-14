@@ -4,7 +4,17 @@
     background: rgba(0, 0, 0, 0.8);
     position: absolute;
     top: 0;
-   
+  }
+    
+  .accountSettingsModal {
+    font-family: 'Muli', sans-serif;
+    width: 800px;
+    padding: 20px 10px;
+    background: white;
+    margin: 15vh auto;
+    position: absolute;
+    top: 10vh;
+    left: 20vw;
     form {
       margin-left: 15px;
       display: flex;
@@ -27,13 +37,6 @@
         border-radius: 10px;
       }
     }
-  }
-   
-  .accountSettingsModal {
-    width: 800px;
-    padding: 20px 10px;
-    background: white;
-    margin: 15vh auto;
   }
   
   .accSettingsTop {

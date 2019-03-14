@@ -65,7 +65,12 @@ const NewCard = props => {
     }
 
     return(
-        <div className={styles.newCard}>
+        <div>
+            <Link to="/home/">
+                <div className={styles.newCard}>
+                </div>
+            </Link>
+
             <div className={styles.newCardModal}>
                 <div className={styles.cardSettingsTop}>
                     <h2>New Estimate</h2>
