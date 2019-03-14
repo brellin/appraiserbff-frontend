@@ -4,9 +4,9 @@
     background: rgba(0, 0, 0, 0.8);
     position: absolute;
     top: 0;
-  }
-  
-  .newCardModal {
+}
+
+.newCardModal {
     position: absolute;
     top: 0;
     left: 15vw;
@@ -14,23 +14,24 @@
     padding: 20px 10px;
     background: white;
     margin: 10vh auto;
-  }
-  .cardSettingsTop {
+}
+
+.cardSettingsTop {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 20px;
     h2 {
-      margin: 10px 0;
-      font-size: 35px;
+        margin: 10px 0;
+        font-size: 35px;
     }
-  }
+}
 
-  .formOne{
+.formOne {
     display: flex;
-    flex-direction: row;   
+    flex-direction: row;
     flex-wrap: wrap;
-    input{
+    input {
         margin: 10px 12px;
         width: 125px;
     }
@@ -42,16 +43,16 @@
         cursor: pointer;
         border-radius: 10px;
         font-size: 14px;
-      }
-  }
+    }
+}
 
-  .formTwo{
+.formTwo {
     display: flex;
-    flex-direction: column;   
+    flex-direction: column;
     align-items: flex-start;
     padding-left: 20px;
     flex-wrap: wrap;
-    input{
+    input {
         margin: 10px 12px;
         width: 125px;
     }
@@ -63,13 +64,10 @@
         cursor: pointer;
         border-radius: 10px;
         font-size: 16px;
-      }
-  }
+    }
+}
 
-  
-
-  
-  .slider {
+.slider {
     -webkit-appearance: none;
     width: 50px;
     height: 25px;
@@ -78,24 +76,24 @@
     opacity: 0.7;
     -webkit-transition: .2s;
     transition: opacity .2s;
-  }
-  
-  .slider:hover {
+}
+
+.slider:hover {
     opacity: 1;
-  }
-  
-  .slider::-webkit-slider-thumb {
+}
+
+.slider::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
     width: 50%;
     height: 25px;
     background: rgb(189, 40, 40);
-    cursor: pointer;
-  }
-  
-  .slider::-moz-range-thumb {
+    cursor: grab;
+}
+
+.slider::-moz-range-thumb {
     width: 50%;
     height: 25px;
     background: rgb(189, 40, 40);
-    cursor: pointer;
-  }
+    cursor: grab;
+}

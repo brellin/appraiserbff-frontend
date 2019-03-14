@@ -1,71 +1,69 @@
 .cardContainer {
-  font-family: 'Muli', sans-serif;
-  margin: auto;
-  width: 100%;
-  max-width: 1100px;
-  height: 70vh;
-  background: #f8f8f8;
-  border: 1px solid black;
-  margin-top: 15px;
-  overflow: scroll;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+    font-family: 'Muli', sans-serif;
+    margin: auto;
+    width: 100%;
+    max-width: 1100px;
+    height: 70vh;
+    background: #f8f8f8;
+    border: 1px solid black;
+    margin-top: 15px;
+    overflow: scroll;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .cardContainerWrapper {
-  margin-top: 10px;
-  width: 70%;
-  max-width: 1100px;
-  button {
-    width: 190px;
-    right: 0;
-    height: 35px;
-    background: #005703;
-    color: white;
-    cursor: pointer;
-    border-radius: 10px;
-    font-size: 20px;
-    margin-right: 10px;
-  }
-
-  .flexTop {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    p {
-      margin-left: 10px;
+    margin-top: 10px;
+    width: 70%;
+    max-width: 1100px;
+    button {
+        width: 190px;
+        right: 0;
+        height: 35px;
+        background: #005703;
+        color: white;
+        cursor: pointer;
+        border-radius: 10px;
+        font-size: 20px;
+        margin-right: 10px;
+        &:hover {
+            background: #008104;
+        }
     }
-
-    .slider {
-      -webkit-appearance: none;
-      width: 50px;
-      height: 25px;
-      background: #d3d3d3;
-      outline: none;
-      opacity: 0.7;
-      -webkit-transition: .2s;
-      transition: opacity .2s;
+    .flexTop {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        p {
+            margin-left: 10px;
+        }
+        .slider {
+            -webkit-appearance: none;
+            width: 50px;
+            height: 25px;
+            background: #d3d3d3;
+            outline: none;
+            opacity: 0.7;
+            -webkit-transition: .2s;
+            transition: opacity .2s;
+        }
+        .slider:hover {
+            opacity: 1;
+        }
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 25px;
+            height: 25px;
+            background: rgb(191, 45, 45);
+            cursor: grab;
+        }
+        .slider::-moz-range-thumb {
+            width: 25px;
+            height: 25px;
+            background: rgb(191, 45, 45);
+            cursor: grab;
+        }
     }
-    
-    .slider:hover {
-      opacity: 1;
-    }
-    
-    .slider::-webkit-slider-thumb {
-      -webkit-appearance: none;
-      appearance: none;
-      width: 25px;
-      height: 25px;
-      background: rgb(191, 45, 45);
-      cursor: pointer;
-    }
-    
-    .slider::-moz-range-thumb {
-      width: 25px;
-      height: 25px;
-      background: rgb(191, 45, 45);
-      cursor: pointer;
-    }
-  }
 }

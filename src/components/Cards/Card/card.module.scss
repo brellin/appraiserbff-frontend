@@ -1,25 +1,25 @@
-.card{
+.card {
     width: 240px;
     height: 270px;
     background: white;
     border: 1px solid black;
     margin: 10px;
+    box-shadow: grey 5px 5px 10px;
 }
 
-
-.top{
+.top {
     width: 100%;
     display: flex;
     justify-content: space-between;
-    p{
+    p {
         margin-top: 10px;
     }
-    div{
+    div {
         width: 40%;
         text-align: left;
         margin-left: 10px;
     }
-    img{
+    img {
         width: 120px;
         height: 120px;
         margin-right: 10px;
@@ -27,27 +27,28 @@
     }
 }
 
-.bottom{
+.bottom {
     width: 100%;
     text-align: left;
     margin-left: 10px;
-    p{
+    p {
         line-height: 28px;
     }
-    span{
+    span {
         margin-left: 35px;
         color: green;
         font-size: 24px;
         text-decoration: underline;
     }
 }
-.seeMore{
+
+.seeMore {
     text-align: left;
     color: blue;
     text-decoration: none;
     font-size: 14px;
     padding: 0 10px 10px 10px;
-    display:flex;
+    display: flex;
     align-items: center;
     justify-content: space-between;
     height: 22px;
