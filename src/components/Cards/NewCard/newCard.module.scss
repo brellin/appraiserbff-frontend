@@ -1,3 +1,5 @@
+$green: #005703;
+$lightgreen: #008104;
 .newCard {
     width: 100vw;
     height: 120vh;
@@ -24,6 +26,15 @@
     h2 {
         margin: 10px 0;
         font-size: 35px;
+        text-shadow: 1px 1px 2px;
+    }
+    a {
+        font-size: 1.5rem;
+        color: black;
+        transition: .2s ease-out 0s;
+        &:hover {
+            font-size: 2rem;
+        }
     }
 }
 
@@ -31,6 +42,7 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    margin-top: 15px;
     input {
         margin: 10px 12px;
         width: 125px;
@@ -38,11 +50,19 @@
     button {
         width: 120px;
         height: 35px;
-        background: black;
+        background: $green;
         color: white;
         cursor: pointer;
         border-radius: 10px;
         font-size: 14px;
+        border: 1px solid black;
+        text-transform: capitalize;
+        margin: 15px auto;
+        transition: font-size .5s ease-out 0s;
+        &:hover {
+            background: linear-gradient($lightgreen, $green);
+            font-size: 1.1rem;
+        }
     }
 }
 
@@ -52,18 +72,33 @@
     align-items: flex-start;
     padding-left: 20px;
     flex-wrap: wrap;
-    input {
-        margin: 10px 12px;
-        width: 125px;
+    div {
+        text-transform: capitalize;
+        width: 50%;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        input {
+            width: 150px;
+            height: 24px;
+            margin: 10px 0;
+        }
     }
     button {
         width: 190px;
         height: 35px;
-        background: #015703;
+        background: $green;
         color: white;
         cursor: pointer;
         border-radius: 10px;
         font-size: 16px;
+        border: 1px solid black;
+        margin: 20px auto;
+        transition: font-size .5s ease-out 0s;
+        &:hover {
+            background: linear-gradient($lightgreen, $green);
+            font-size: 1.2rem;
+        }
     }
 }
 

@@ -1,41 +1,50 @@
-.fullPage{
+$white: #e9e9e9;
+.fullPage {
     width: 100vw;
     height: 100vh;
     background: #e5d7c9;
 }
 
-.loginForm{
+.loginForm {
     width: 400px;
     height: 340px;
     background: #07560B;
-    box-shadow: 0 0 100px rgba(0,0,0,0.4);
+    box-shadow: 0 0 100px rgba(0, 0, 0, 0.4);
     margin: 20vh auto;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-
-    label{
+    border-radius: 15px;
+    label {
         font-size: 34px;
         font-family: sans-serif;
         margin: 10px;
-        color: white;
+        color: $white;
     }
-    button{
+    button {
         width: 100px;
         height: 30px;
         margin: 15px;
         font-size: 18px;
+        background: lightgrey;
+        border-radius: 5px;
+        border: 1px solid $white;
+        text-transform: capitalize;
         cursor: pointer;
+        transition: font-size .2s ease-out;
+        &:hover {
+            background: linear-gradient($white, #ddd);
+            font-size: 20px;
+        }
     }
-    input{
+    input {
         margin-bottom: 20px;
     }
-
-    p{
+    p {
         color: #67BB9B;
         font-family: sans-serif;
-        span{
+        span {
             color: rgb(103, 134, 187);
             text-decoration: underline;
             cursor: pointer;
@@ -43,38 +52,36 @@
     }
 }
 
-.createAccForm{
+.createAccForm {
     width: 400px;
     height: 540px;
     background: #07560B;
-    box-shadow: 0 0 100px rgba(0,0,0,0.4);
+    box-shadow: 0 0 100px rgba(0, 0, 0, 0.4);
     margin: 20vh auto;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    label{
+    label {
         font-size: 34px;
         font-family: sans-serif;
         margin: 10px;
         color: white;
     }
-    button{
+    button {
         width: 150px;
         height: 30px;
         margin: 15px;
         font-size: 18px;
         cursor: pointer;
     }
-    input{
+    input {
         margin-bottom: 20px;
     }
-
-
-    p{
+    p {
         color: #67BB9B;
         font-family: sans-serif;
-        span{
+        span {
             color: rgb(103, 134, 187);
             text-decoration: underline;
             cursor: pointer;

@@ -1,3 +1,5 @@
+$green: #005703;
+$lightgreen: #008104;
 .accountSettings {
     width: 100vw;
     height: 120vh;
@@ -35,13 +37,16 @@
         button {
             width: 190px;
             height: 35px;
-            background: #005703;
+            background: $green;
             color: white;
             cursor: pointer;
-            margin: 15px 0 15px 15px;
+            margin: 15px auto;
+            border: 1px solid black;
+            transition: font-size .2s ease-out;
             border-radius: 10px;
             &:hover {
-                background: #008104;
+                background: linear-gradient($lightgreen, $green);
+                font-size: 1.2rem;
             }
         }
     }
@@ -55,5 +60,14 @@
     h2 {
         margin: 10px 0;
         font-size: 35px;
+        text-shadow: 1px 1px 2px;
+    }
+    a {
+        font-size: 1.5rem;
+        color: black;
+        transition: .2s ease-out 0s;
+        &:hover {
+            font-size: 2rem;
+        }
     }
 }
