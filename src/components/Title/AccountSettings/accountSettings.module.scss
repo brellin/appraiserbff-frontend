@@ -4,9 +4,9 @@
     background: rgba(0, 0, 0, 0.8);
     position: absolute;
     top: 0;
-  }
-    
-  .accountSettingsModal {
+}
+
+.accountSettingsModal {
     font-family: 'Muli', sans-serif;
     width: 800px;
     padding: 20px 10px;
@@ -16,37 +16,44 @@
     top: 10vh;
     left: 20vw;
     form {
-      margin-left: 15px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: flex-start;
-      input {
-        width: 150px;
-        height: 24px;
-        margin: 10px 0;
-      }
-  
-      button {
-        width: 190px;
-        height: 35px;
-        background: #005703;
-        color: white;
-        cursor: pointer;
-        margin-top: 40px;
-        border-radius: 10px;
-      }
+        padding-left: 15px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        div {
+            width: 50%;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            input {
+                width: 150px;
+                height: 24px;
+                margin: 10px 0;
+            }
+        }
+        button {
+            width: 190px;
+            height: 35px;
+            background: #005703;
+            color: white;
+            cursor: pointer;
+            margin: 15px 0 15px 15px;
+            border-radius: 10px;
+            &:hover {
+                background: #008104;
+            }
+        }
     }
-  }
-  
-  .accSettingsTop {
+}
+
+.accSettingsTop {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 20px;
     h2 {
-      margin: 10px 0;
-      font-size: 35px;
+        margin: 10px 0;
+        font-size: 35px;
     }
-  }
-  
+}

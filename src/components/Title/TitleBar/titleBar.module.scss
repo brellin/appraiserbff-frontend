@@ -1,5 +1,8 @@
+$white: #E9E9E9;
+$green: #005703;
+$lightgreen: #008104;
 .titleBar {
-    background: #005703;
+    background: linear-gradient($lightgreen, $green);
     height: 10px;
     display: flex;
     flex-direction: row;
@@ -8,32 +11,29 @@
     align-items: center;
     margin: 0 auto;
     font-family: 'Muli', sans-serif;
-  
     h2 {
-      color: rgba(255, 255, 255, 0.479);
-      font-size: 30px;
+        color: $white;
+        font-size: 30px;
+        text-shadow: $white 1px 1px 5px;
     }
-  }
-  
-  .user {
+}
+
+.user {
     display: flex;
     align-items: center;
-  
     i {
-      color: white;
-      margin-right: 12px;
+        color: $white;
+        margin-right: 12px;
     }
-  
     h3 {
-      color: white;
-      margin-right: 50px;
-      font-size: 30px;
+        color: $white;
+        margin-right: 50px;
+        font-size: 30px;
     }
     div {
-      width: 45px;
-      height: 45px;
-      background: white;
-      border-radius: 50%;
+        width: 45px;
+        height: 45px;
+        background: $white;
+        border-radius: 50%;
     }
-  }
-  
+}

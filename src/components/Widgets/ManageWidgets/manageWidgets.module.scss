@@ -26,8 +26,30 @@ form.dialog {
     main {
         display: flex;
         justify-content: space-between;
-        h2 {
-            padding-bottom: 1px;
+        padding: 5px 0 0;
+        section {
+            h2 {
+                padding-bottom: 5px;
+                text-decoration: underline;
+                text-align: center;
+                font-weight: bold;
+            }
+            div {
+                margin-top: 20px;
+                &.widget {
+                    margin-top: 0px;
+                }
+            }
+            a {
+                transition: font-size .3s ease-out 0s;
+                text-decoration: none;
+                font-weight: bold;
+                position: relative;
+                top: -20px;
+                &:hover {
+                    font-size: 1.2rem;
+                }
+            }
         }
     }
     footer {
@@ -36,7 +58,8 @@ form.dialog {
             margin-top: 20px;
             width: 200px;
             height: 30px;
-            transition: 0.2s;
+            border-radius: 5px;
+            transition: 0.2s ease-out 0s;
             &:focus {
                 outline: 5px solid $white;
             }
@@ -65,7 +88,7 @@ form.dialog {
 .sortWidgets {
     border: 1px solid black;
     width: 30%;
-    min-width: 150px;
+    min-width: 160px;
 }
 
 .widget {
@@ -73,7 +96,7 @@ form.dialog {
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    min-width: 150px;
+    min-width: 160px;
     min-height: $height;
     &:nth-child(even) {
         background-color: rgb(194, 194, 194);

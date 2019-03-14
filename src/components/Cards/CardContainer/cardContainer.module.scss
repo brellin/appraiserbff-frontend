@@ -1,3 +1,5 @@
+$green: #005703;
+$lightgreen: #008104;
 .cardContainer {
     font-family: 'Muli', sans-serif;
     margin: auto;
@@ -21,14 +23,15 @@
         width: 190px;
         right: 0;
         height: 35px;
-        background: #005703;
+        background: $green;
         color: white;
         cursor: pointer;
-        border-radius: 10px;
+        border-radius: 15px;
         font-size: 20px;
         margin-right: 10px;
+        border: 1px solid black;
         &:hover {
-            background: #008104;
+            background: linear-gradient($lightgreen, $green);
         }
     }
     .flexTop {
@@ -37,6 +40,9 @@
         align-items: center;
         p {
             margin-left: 10px;
+        }
+        label {
+            text-transform: capitalize;
         }
         .slider {
             -webkit-appearance: none;

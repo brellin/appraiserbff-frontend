@@ -1,3 +1,4 @@
+$white: #E9E9E9;
 .widgetContainer {
     width: 20%;
     max-width: 300px;
@@ -17,6 +18,7 @@
     justify-content: center;
     align-items: center;
     border-bottom: 1px solid black;
+    background: linear-gradient(white, $white);
     h2 {
         font-size: 1.5rem;
         text-align: center; //text-decoration: underline;
