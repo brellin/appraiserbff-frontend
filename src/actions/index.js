@@ -78,7 +78,6 @@ export const addRealEstate = (realEstate, buyOrSell) => dispatch => {
 };
 
 export const setSortBy = sortObj => {
-  console.log("ACTION: ", sortObj);
   return {
     type: SET_REAL_ESTATE_SORT,
     payload: sortObj

@@ -1,4 +1,6 @@
 $height: 40px;
+$darkRed: #bf2d2d;
+$lightRed: #d26c6c;
 
 .manageWidgets {
   width: 100vw;
@@ -6,15 +8,40 @@ $height: 40px;
   background: rgba(0, 0, 0, 0.8);
   position: absolute;
   top: 0;
+}
+form.dialog {
+  width: 80%;
+  max-width: 500px;
+  padding: 20px 10px;
+  background: white;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 20%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
-  div.dialog {
-    width: 80%;
-    max-width: 500px;
-    padding: 20px 10px;
-    background: white;
-    margin: 200px auto;
+  main {
     display: flex;
     justify-content: space-between;
+  }
+
+  footer {
+    text-align: center;
+    button.save {
+      margin-top: 20px;
+      width: 200px;
+      height: 30px;
+      background-color: lighten($lightRed, 10%);
+      transition: 0.2s;
+      border: 1px solid #000;
+      &:hover {
+        background-color: lighten($lightRed, 25%);
+        //color: #fff;
+      }
+    }
   }
 }
 

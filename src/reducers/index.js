@@ -30,7 +30,6 @@ const initialState = {
 };
 
 export default (state = initialState, action) => {
-  console.log("FOUND ACTION: ", action.type);
   switch (action.type) {
     case MOCK_DATA_PULL:
       console.log(action.payload.user);
@@ -88,7 +87,6 @@ export default (state = initialState, action) => {
       };
 
     case SET_REAL_ESTATE_SORT:
-      console.log("Updating sort", action.payload);
       return { ...state, sortBy: action.payload };
     case DELETE_REAL_ESTATE:
       // action.payload should be an id of the deleted object
@@ -123,7 +121,13 @@ export default (state = initialState, action) => {
 
     // Widget reducers
     case UPDATING_WIDGETS:
+      return { ...state, updatingWidgets: true };
     case SET_WIDGETS:
+      return {
+        ...state,
+        updatingWidgets: false,
+        user: { ...state.user, widgets: action.payload }
+      };
     default:
       return state;
   }

@@ -73,7 +73,7 @@ class App extends Component {
 
 const mapStateToProps = state => {
   return {
-    realEstate: state.realEstate
+    realEstate: state.user.realEstate
   };
 };
 

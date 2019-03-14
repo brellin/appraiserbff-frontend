@@ -54,18 +54,24 @@ const CardContainer = props => {
   // componentDidUpdate
   useEffect(
     () => {
-      console.log("SORTBY:", props.sortBy);
       const sorted = realEstateSorter();
       setLocalRE(sorted);
     },
     [props.userView, props.realEstate, props.sortBy]
   );
+
+  const [filterBySearch, seFilterBySearch] = useState("");
+
   return (
     <div className={styles.cardContainerWrapper}>
       <div className={styles.flexTop}>
         <div>
           <label>filter results:</label>
-          <input type="text" />
+          <input
+            value={filterBySearch}
+            onChange={e => seFilterBySearch(e.target.value)}
+            type="text"
+          />
         </div>
 
         <div>
@@ -108,9 +114,11 @@ const CardContainer = props => {
         </Link>
       </div>
       <div className={styles.cardContainer}>
-        {localRealEstate.map(item => (
-          <Card mode={item.mode} key={item.id} item={item} />
-        ))}
+        {localRealEstate
+          .filter(item => item.address.includes(filterBySearch))
+          .map(item => (
+            <Card mode={item.mode} key={item.id} item={item} />
+          ))}
       </div>
     </div>
   );
