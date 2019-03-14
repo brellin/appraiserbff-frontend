@@ -54,14 +54,11 @@ const CardContainer = props => {
   // componentDidUpdate
   useEffect(
     () => {
-      console.log("SORTBY:", props.sortBy);
       const sorted = realEstateSorter();
       setLocalRE(sorted);
     },
     [props.userView, props.realEstate, props.sortBy]
   );
-
-
   const [filterBySearch, seFilterBySearch] = useState("");
 
   return (
@@ -118,6 +115,7 @@ const CardContainer = props => {
         {localRealEstate.filter(item => item.address.includes(filterBySearch)).map(item => (
           <Card mode={item.mode} key={item.id} item={item} />
         ))}
+
       </div>
     </div>
   );
@@ -135,3 +133,4 @@ export default connect(
   mapStateToProps,
   { setUserView }
 )(CardContainer);
+

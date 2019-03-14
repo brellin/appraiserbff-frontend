@@ -49,3 +49,4 @@ export default connect(
   mapStateToProps,
   { setSortBy }
 )(Widget);
+

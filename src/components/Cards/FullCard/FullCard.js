@@ -1,3 +1,4 @@
+
 import React from 'react'
 import styles from './fullCard.module.scss'
 import { Link } from 'react-router-dom'
@@ -5,11 +6,10 @@ import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 
 import { deleteRealEstate } from '../../../actions'
-
+import { deleteRealEstate } from "../../../actions";
 
  
 const FullCard = props => {
-    console.log(props);
     return(
         <div>
             <Link to="/home/">
@@ -46,7 +46,7 @@ const FullCard = props => {
                 >delete</button>
             </div>
         </div>
-    );
-}
+
 
 export default connect(null, {deleteRealEstate})(FullCard)
+

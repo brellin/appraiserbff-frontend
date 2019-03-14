@@ -1,38 +1,47 @@
-import React from "react";
+import React, { useState, useEffect, Fragment } from "react";
 import styles from "./manageWidgets.module.scss";
 import { Link } from "react-browser-router";
 import widgetData from "../Widget/widgetData.js";
 import { setWidgets } from "../../../actions";
 import { connect } from "react-redux";
 
-// Live version needs props
 function ManageWidgets(props) {
+  // Component mounts with no props from Redux so set to empty array first
+  const [localWidgets, setLW] = useState([]);
+  // Once props is received from Redux, update state
+  useEffect(
+    () => {
+      // componentDidUpdate
+      setLW(props.widgets);
+    },
+    [props.widgets]
+  );
+
   // Change order of widgets on click;
   const changeOrder = (index, move) => {
-    const newOrder = [...props.widgets]; // fight the power
+    const newOrder = [...localWidgets]; // fight the power
     const holder = newOrder[index];
     newOrder[index] = newOrder[index + move];
     newOrder[index + move] = holder;
-    props.setWidgets(newOrder);
+    setLW(newOrder);
   };
 
   // Add/Remove widgets
-  const setWidgets = widget => {
-    let widgets = [...props.widgets];
-    const index = props.widgets.indexOf(widget);
+  const changeWidgets = widget => {
+    let widgets = [...localWidgets];
+    const index = widgets.indexOf(widget);
     if (index > -1) {
       widgets = [...widgets.slice(0, index), ...widgets.slice(index + 1)];
     } else {
       widgets.push(widget);
     }
-    props.setWidgets(widgets);
+    setLW(widgets);
   };
 
   // Users widgets, in order
   const getUserWidgetList = () => {
-    // Name is tied to data which I don't want to pass here.  Will have to find a way to split name from
-    // value.  Will just use coded name in widgets for now so I can progress
-    return props.widgets.map((name, index) => {
+    return localWidgets.map((name, index) => {
+      const { display } = widgetData[name]();
       let up, down;
       if (index > 0) {
         up = (
@@ -44,7 +53,7 @@ function ManageWidgets(props) {
       } else {
         up = <i className={`fas fa-caret-up ${styles.inactive}`} />;
       }
-      if (index < props.widgets.length - 1) {
+      if (index < localWidgets.length - 1) {
         down = (
           <i
             onClick={() => changeOrder(index, 1)}
@@ -55,8 +64,8 @@ function ManageWidgets(props) {
         down = <i className={`fas fa-caret-down ${styles.inactive}`} />;
       }
       return (
-        <div key={index} className={styles.widget}>
-          <p>{name}</p>
+        <div key={name} className={styles.widget}>
+          <p>{display}</p>
           <div className={styles.arrows}>
             {up}
             {down}
@@ -69,44 +78,65 @@ function ManageWidgets(props) {
   // Get all widgets available
   const getWidgetChecklist = () => {
     return Object.keys(widgetData).map(widget => {
-      let checked = props.widgets.includes(widget) ? true : false;
+      const { display } = widgetData[widget]();
+      let checked = localWidgets.includes(widget) ? true : false;
 
       return (
-        <div>
+        <div key={widget}>
           <input
             type="checkbox"
-            onChange={() => setWidgets(widget)}
+            onChange={() => changeWidgets(widget)}
             checked={checked}
           />{" "}
-          {widget}
+          {display}
         </div>
       );
     });
   };
 
+  const saveWidgets = e => {
+    e.preventDefault();
+    props.setWidgets(localWidgets);
+  };
+
   const sortNames = getUserWidgetList();
   const fullWidgetList = getWidgetChecklist();
   return (
-    <div className={styles.manageWidgets}>
-      <div className={styles.dialog}>
-        <section>
-          <h2>Order</h2>
-          <div className={styles.sortWidgets}>{sortNames}</div>
-        </section>
-        <section>
-          <h2>Widgets</h2>
-          <div className={styles.allWidgets}>{fullWidgetList}</div>
-        </section>
-        <section>
-          <Link to="/home">X</Link>
-        </section>
-      </div>
-    </div>
+    <Fragment>
+      <Link to="/home">
+        <div className={styles.manageWidgets} />
+      </Link>
+      <form className={styles.dialog} onSubmit={e => saveWidgets(e)}>
+        <main>
+          <section>
+            <h2>Your Widgets</h2>
+            <div className={styles.sortWidgets}>{sortNames}</div>
+          </section>
+          <section>
+            <h2>Widgets</h2>
+            <div className={styles.allWidgets}>{fullWidgetList}</div>
+          </section>
+          <section>
+            <Link to="/home">X</Link>
+          </section>
+        </main>
+        <footer>
+          <button className={styles.save} type="submit">
+            {props.updatingWidgets ? (
+              <i className="fas fa-spinner fa-spin" />
+            ) : (
+              "Save Widgets!"
+            )}
+          </button>
+        </footer>
+      </form>
+    </Fragment>
   );
 }
 
 const mapStateToProps = state => ({
-  widgets: state.user.widgets
+  widgets: state.user.widgets,
+  updatingWidgets: state.updatingWidgets
 });
 
 export default connect(
